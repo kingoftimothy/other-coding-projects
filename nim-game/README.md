@@ -123,4 +123,3 @@ Any user interface that lets two players play the game is acceptable, so the abo
 However, you should feel free to be creative here.
 Also, if you're looking to stretch yourself, the game mechanics can be improved.
 For instance, we know that Player 2 is going to lose before they take their turn, since there is only one match remaining.
-Why not finish the game early?
