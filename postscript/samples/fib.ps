@@ -1,0 +1,52 @@
+% A sample postscript program.
+/fib
+{
+  dup % duplicate n
+  0 ne % is n != 0?
+  {
+    dup
+    1 ne % is n also != 1
+    {
+     % yes:
+     dup 1 sub fib exch % fib(n-1) n
+     2 sub fib          % fig(n-1) fib(n-2)
+     add	        % fib(n-1)+fib(n-2)
+    }
+    if
+  }
+  if
+}
+def
+
+0 fib pstack pop
+1 fib pstack pop
+2 fib pstack pop
+3 fib pstack pop
+4 fib pstack pop
+5 fib pstack pop
+6 fib pstack pop
+7 fib pstack pop
+8 fib pstack pop
+quit
+
+%prints:
+%0.0
+%1.0
+%1.0
+%2.0
+%3.0
+%5.0
+%8.0
+%13.0
+%21.0
+
+%also OK to print:
+%0
+%1
+%1
+%2
+%3
+%5
+%8
+%13
+%21

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+function usage {
+    echo "Usage:"
+    echo "\tcheckstyle <filename.java>"
+    echo "or"
+    echo "\tcheckstyle"
+    echo "The first variant runs checkstyle on a given Java file.  The second variant runs checkstyle on all .java files in the current directory."
+    exit 1
+}
+
+if [ "$#" -eq 1 ]
+then
+    if [ "$1" = "--help" ]
+    then
+	usage
+    else
+	java -cp .checkstyle/checkstyle-8.28-all.jar com.puppycrawl.tools.checkstyle.Main -c .checkstyle/config.xml $@
+	exit 0
+    fi
+fi
+
+if [ "$#" -eq 0 ]
+then
+    find . -type f -iname "*.java" -exec echo -n "Checking " \; -exec sh -c 'echo $(basename {})' \; -exec java -cp .checkstyle/checkstyle-8.28-all.jar com.puppycrawl.tools.checkstyle.Main -c .checkstyle/config.xml {} \;
+    exit 0
+fi
+
+if [ "$#" -ne 1 ]
+then
+    usage
+fi
+
+
+

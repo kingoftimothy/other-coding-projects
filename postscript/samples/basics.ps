@@ -1,0 +1,29 @@
+0 pstack
+1 add pstack
+-1 sub pstack
+2 mul pstack
+.5 div pstack
+dup add pstack
+32 exch pstack
+eq pstack
+true ne pstack
+pop pstack
+/pi 3.14 def
+ptable
+pi pstack
+quit
+
+% (quit should end the interperter)
+% prints:
+% 0.0
+% 1.0
+% 2.0
+% 4.0
+% 8.0
+% 16.0
+% 16.0 32.0
+% false
+% true
+%            (prints empty stack)
+% pi=3.14    (prints symbol table)
+% 3.14
